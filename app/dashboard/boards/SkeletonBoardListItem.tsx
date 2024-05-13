@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SkeletonBoardListItem = () => {
   return (
     <div className='flex flex-col gap-4 w-52'>

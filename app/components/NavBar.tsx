@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
+import { User } from '../types/users';
 
 interface NavbarProps {
-  user?: object;
+  user?: User;
 }
 
 const NavBar = ({ user }: NavbarProps) => {

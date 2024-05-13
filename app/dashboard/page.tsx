@@ -1,10 +1,11 @@
+import { Board } from '../types/users';
 import BoardList from './boards/BoardList';
 
 const Dashboard = async () => {
   const res = await fetch(
     'https://664146aca7500fcf1a9ffe56.mockapi.io/api/v1/boards'
   );
-  const boards = await res.json();
+  const boards: Board[] = await res.json();
 
   return (
     <>

@@ -16,6 +16,7 @@ const config: Config = {
       fontFamily: {
         retro: ['VT323', 'monospace'],
         pixelify: ['Pixelify Sans', 'sans-serif'],
+        pressStart: ['Press Start 2P', 'system-ui'],
       },
     },
   },

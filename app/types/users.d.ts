@@ -29,7 +29,7 @@ export interface Board {
   title: string;
   actionItems: ActionItem[];
   createdAt: Date;
-  negativeItems: Items[];
-  positiveItems: Items[];
+  negativeItems: Item[];
+  positiveItems: Item[];
   author: User;
 }

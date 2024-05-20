@@ -18,7 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className='flex h-screen flex-col justify-around p-3 font-pixelify  '>
+      <head>
+        <link
+          href='https://unpkg.com/nes.css@latest/css/nes.min.css'
+          rel='stylesheet'
+        />
+      </head>
+      <body className='flex h-screen flex-col justify-around p-3 font-pressStart  '>
         <Header />
         <main className='flex flex-col flex-auto flex-wrap'>
           <h1 className='text-8xl font-retro'>Retro Board</h1>

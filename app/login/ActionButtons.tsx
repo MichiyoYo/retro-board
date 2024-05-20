@@ -9,10 +9,10 @@ const ActionButtons = () => {
   };
   return (
     <div className='card-actions justify-end'>
-      <button className='btn btn-primary' onClick={onClick}>
+      <button className='nes-btn is-success' onClick={onClick}>
         Login
       </button>
-      <button className='btn btn-ghost'>Go Back</button>
+      <button className='nes-btn is-primary'>Go Back</button>
     </div>
   );
 };

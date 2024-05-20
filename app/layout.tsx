@@ -26,10 +26,7 @@ export default function RootLayout({
       </head>
       <body className='flex h-screen flex-col justify-around p-3 font-pressStart  '>
         <Header />
-        <main className='flex flex-col flex-auto flex-wrap'>
-          <h1 className='text-8xl font-retro'>Retro Board</h1>
-          {children}
-        </main>
+        <main className='flex flex-col flex-auto flex-wrap'>{children}</main>
         <Footer />
       </body>
     </html>

@@ -5,12 +5,11 @@ import SkeletonBoardListItem from './SkeletonBoardListItem';
 
 interface BoardListItemProps {
   board: Board;
-  key: string;
 }
 
-const BoardListItem = ({ board, key }: BoardListItemProps) => {
+const BoardListItem = ({ board }: BoardListItemProps) => {
   return (
-    <li key={key}>
+    <li>
       <Suspense fallback={<SkeletonBoardListItem />}>
         <div className=' bg-slate-400 shadow-xl card min-w-fit overflow-hidden'>
           {/* <Image

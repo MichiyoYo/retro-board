@@ -39,7 +39,16 @@ export async function PUT(request: NextRequest, { params }: ParamsProps) {
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
 
-  await prisma.board.update({
+  const board = await prisma.board.findUnique({
+    where: {
+      id: parseInt(params.id),
+    },
+  });
+  if (!board) {
+    return NextResponse.json({ error: 'No board found' }, { status: 404 });
+  }
+
+  const updatedBoard = await prisma.board.update({
     where: {
       id: parseInt(params.id),
     },
@@ -48,4 +57,6 @@ export async function PUT(request: NextRequest, { params }: ParamsProps) {
       lists: body.lists,
     },
   });
+
+  return NextResponse.json(updatedBoard, { status: 200 });
 }

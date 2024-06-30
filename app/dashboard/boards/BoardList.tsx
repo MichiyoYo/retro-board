@@ -10,7 +10,7 @@ const BoardList = ({ boards }: BoardListProps) => {
   return (
     <ul className='flex flex-row flex-wrap gap-4'>
       {boards?.map((board: Board) => (
-        <BoardListItem board={board} key={board.id} />
+        <BoardListItem board={board} key={board?.id} />
       ))}
     </ul>
   );

@@ -1,4 +1,4 @@
-import { Board } from '@/app/types/users';
+import { Board } from '@/app/types/types';
 import Image from 'next/image';
 import BoardListItem from './BoardListItem';
 

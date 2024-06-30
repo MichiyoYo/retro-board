@@ -1,36 +1,51 @@
 import { NextRequest, NextResponse } from 'next/server';
 import schema from '../schema';
+import prisma from '@/prisma/client';
 
 interface ParamsProps {
   params: {
-    id: number;
+    id: string;
   };
 }
 
-export function GET(request: NextRequest, { params }: ParamsProps) {
-  if (params.id > 10)
-    return NextResponse.json({ error: 'Board not found' }, { status: 404 });
-  return NextResponse.json({
-    id: params.id,
-    title: 'Cree board',
+export async function GET(request: NextRequest, { params }: ParamsProps) {
+  const board = await prisma.board.findUnique({
+    where: { id: parseInt(params.id) },
   });
+  if (!board)
+    return NextResponse.json({ error: 'Board not found' }, { status: 404 });
+  return NextResponse.json(board);
 }
 
-export function DELETE(request: NextRequest, { params }: ParamsProps) {
-  if (params.id > 10)
+export async function DELETE(request: NextRequest, { params }: ParamsProps) {
+  const board = await prisma.board.findUnique({
+    where: { id: parseInt(params.id) },
+  });
+  if (!board)
     return NextResponse.json({ error: 'Board not found' }, { status: 404 });
-  return NextResponse.json({ status: 200 });
+  else {
+    await prisma.board.delete({
+      where: { id: parseInt(params.id) },
+    });
+    return NextResponse.json({ message: 'Board deleted' });
+  }
 }
 
 export async function PUT(request: NextRequest, { params }: ParamsProps) {
-  if (params.id > 10)
-    return NextResponse.json({ error: 'Board not found' }, { status: 404 });
   const body = await request.json();
   const validation = schema.safeParse(body);
-  if (!validation.success)
+
+  if (!validation.success) {
     return NextResponse.json(validation.error.errors, { status: 400 });
-  return NextResponse.json({
-    id: params.id,
-    title: body.title,
+  }
+
+  await prisma.board.update({
+    where: {
+      id: parseInt(params.id),
+    },
+    data: {
+      title: body.title,
+      lists: body.lists,
+    },
   });
 }

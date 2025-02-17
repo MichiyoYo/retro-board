@@ -1,5 +1,4 @@
 import { emptyCard, initialBoard } from 'constants';
-import { Button } from 'pixel-retroui';
 import { useState } from 'react';
 import { Column } from 'types';
 import { BoardHeader } from './BoardHeader';

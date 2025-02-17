@@ -9,4 +9,5 @@ export interface Column {
   id: string;
   title: string;
   cards: Card[];
+  icon?: string;
 }

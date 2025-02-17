@@ -4,16 +4,19 @@ export const initialBoard: Column[] = [
   {
     id: 'went-well',
     title: 'Went Well',
+    icon: 'thumb-up',
     cards: [],
   },
   {
     id: 'needs-improvement',
     title: 'Needs Improvement',
+    icon: 'control-panel',
     cards: [],
   },
   {
     id: 'action-items',
     title: 'Action Items',
+    icon: 'star',
     cards: [],
   },
 ];

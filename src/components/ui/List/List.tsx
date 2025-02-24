@@ -3,7 +3,7 @@ import { Item } from 'types';
 interface ListProps {
   items: Item[];
   resourceName: string;
-  itemComponent: React.ElementType;
+  itemComponent: React.ElementType | React.ComponentType;
 }
 
 export const List = ({

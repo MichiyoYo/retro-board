@@ -1,15 +1,22 @@
 import { List } from '@/ui';
-import { RetroCard } from 'components/RetroCard';
+import { RetroItem } from 'components/RetroItem';
 import { initialBoard } from 'constants';
-import { Column } from 'types';
+import { Button, Card, Column } from 'types';
+
+const ListItem = ({ item }: { item: Card | Button }) => (
+  <li key={crypto.randomUUID()} className='mb-5'>
+    <RetroItem item={item} />
+  </li>
+);
 
 export const BoardBody = ({ board = initialBoard }: { board?: Column[] }) => (
   <div className='grid grid-cols-3 gap-3'>
     {board.map((column) => (
       <List
-        items={column?.cards?.length > 0 ? column.cards : []}
-        resourceName='card'
-        itemComponent={RetroCard}
+        key={column.id}
+        items={column?.items?.length > 0 ? column.items : []}
+        resourceName='item'
+        itemComponent={ListItem}
       />
     ))}
   </div>

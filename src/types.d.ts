@@ -17,3 +17,9 @@ export interface Card extends Item {
 export interface Button extends Item {
   onClick: () => void;
 }
+
+export interface Board extends Item {
+  title: string;
+  date: Date;
+  columns: Column[];
+}

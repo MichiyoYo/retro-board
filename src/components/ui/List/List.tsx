@@ -1,9 +1,9 @@
 import { Item } from 'types';
 
 interface ListProps {
-  items: Item[];
+  items: Item[] | Map<string, Item>;
   resourceName: string;
-  itemComponent: React.ElementType | React.ComponentType;
+  itemComponent: React.ElementType;
 }
 
 export const List = ({
@@ -13,9 +13,13 @@ export const List = ({
 }: ListProps) => {
   return (
     <ul>
-      {items.map((item, i) => (
-        <ItemComponent key={i} {...{ [resourceName]: item }} />
-      ))}
+      {Array.isArray(items)
+        ? items.map((item, i) => (
+            <ItemComponent key={i} {...{ [resourceName]: item }} />
+          ))
+        : Array.from(items.entries()).map(([key, item]) => (
+            <ItemComponent key={key} {...{ [resourceName]: item }} />
+          ))}
     </ul>
   );
 };

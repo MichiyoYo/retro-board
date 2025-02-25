@@ -9,10 +9,10 @@ import { isCard } from 'utils/utils';
 
 export const RetroItem = ({
   item,
-  colId,
+  columnId,
 }: {
   item: Card | ButtonType;
-  colId: string;
+  columnId: string;
 }) => {
   const context = useContext(BoardContext);
   if (!context) {
@@ -46,6 +46,6 @@ export const RetroItem = ({
     );
   } else {
     const button = item as ButtonType;
-    return <AddButton button={button} colId={colId} />;
+    return <AddButton button={button} columnId={columnId} />;
   }
 };

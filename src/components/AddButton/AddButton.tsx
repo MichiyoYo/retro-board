@@ -8,10 +8,10 @@ import { Button as ButtonType } from 'types';
 
 export const AddButton = ({
   button,
-  colId,
+  columnId,
 }: {
   button: ButtonType;
-  colId: string;
+  columnId: string;
 }) => {
   const context = useContext(BoardContext);
   if (!context) {
@@ -23,20 +23,19 @@ export const AddButton = ({
 
   const addCardToColumn = ({
     event,
-    colId,
+    columnId,
   }: {
     event: React.MouseEvent<HTMLButtonElement>;
-    colId: string;
+    columnId: string;
   }) => {
     event.preventDefault();
-    console.log('Adding card to column:', colId);
-
+    console.log('Adding card to column', columnId);
     dispatch(
-      addCard(colId, {
+      addCard(columnId, {
         ...emptyCard,
-        text: 'test',
+        text: 'hey',
         votes: 2,
-        author: 'Cree',
+        author: 'Cre',
       })
     );
     setIsPopupOpen(false);
@@ -53,7 +52,7 @@ export const AddButton = ({
       </Button>
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <h2 className='text-lg mb-4'>Share your retro-thoughts</h2>
-        <Form onSubmit={(event) => addCardToColumn({ event, colId })} />
+        <Form onSubmit={(event) => addCardToColumn({ event, columnId })} />
       </Popup>
     </>
   );

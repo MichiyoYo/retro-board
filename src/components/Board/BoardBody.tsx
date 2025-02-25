@@ -4,9 +4,15 @@ import { useContext } from 'react';
 import { BoardContext } from 'state/BoardContext';
 import { Button, Card, Column } from 'types';
 
-const ListItem = ({ item, colId }: { item: Card | Button; colId: string }) => (
+const ListItem = ({
+  item,
+  columnId,
+}: {
+  item: Card | Button;
+  columnId: string;
+}) => (
   <li key={crypto.randomUUID()} className='mb-3 flex'>
-    <RetroItem item={item} colId={colId} />
+    <RetroItem item={item} columnId={columnId} />
   </li>
 );
 
@@ -21,11 +27,10 @@ export const BoardBody = () => {
       {board?.columns?.map((column: Column) => (
         <List
           key={column.id}
-          // items={column?.items?.length > 0 ? column.items : []}
           items={column?.items?.length > 0 ? column.items : []}
           resourceName='item'
           itemComponent={(props: { item: Card | Button }) => (
-            <ListItem {...props} colId={column.id} />
+            <ListItem {...props} columnId={column.id} />
           )}
         />
       ))}

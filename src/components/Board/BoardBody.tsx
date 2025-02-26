@@ -22,12 +22,14 @@ export const BoardBody = () => {
     throw new Error('BoardContext is undefined');
   }
   const { board } = context;
+  console.log('board:', board);
+
   return (
     <div className='grid grid-cols-3 gap-3'>
       {board?.columns?.map((column: Column) => (
         <List
           key={column.id}
-          items={column?.items?.length > 0 ? column.items : []}
+          items={column?.items?.size > 0 ? column.items : []}
           resourceName='item'
           itemComponent={(props: { item: Card | Button }) => (
             <ListItem {...props} columnId={column.id} />

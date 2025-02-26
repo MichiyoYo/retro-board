@@ -6,17 +6,18 @@ export const addCard = (columnId: string, card: Card) => {
   return {
     type: 'ADD_CARD',
     payload: {
-      id: columnId,
+      columnId,
       item: card,
     },
   };
 };
 
-export const upvoteCard = (cardId: string) => {
+export const upvoteCard = (columnId: string, card: Card) => {
   return {
     type: 'UPVOTE_CARD',
     payload: {
-      cardId,
+      columnId,
+      item: card,
     },
   };
 };

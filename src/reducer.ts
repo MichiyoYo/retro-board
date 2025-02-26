@@ -4,7 +4,7 @@ import { Column } from 'types';
 export const reducer = (state: BoardState, action: BoardAction) => {
   switch (action.type) {
     case 'ADD_CARD': {
-      const { id: columnId, item: card } = action.payload;
+      const { columnId, item: card } = action.payload;
       // add a card to the column with id columnId in an immutable way
       const newColumns = state.board.columns.map((column: Column) => {
         if (column.id === columnId) {
@@ -22,6 +22,7 @@ export const reducer = (state: BoardState, action: BoardAction) => {
         },
       };
     }
+
     default:
       return state;
   }

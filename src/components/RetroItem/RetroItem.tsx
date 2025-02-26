@@ -22,7 +22,7 @@ export const RetroItem = ({
   if (item && isCard(item)) {
     const card = item as Card;
     const upvote = () => {
-      dispatch(upvoteCard(card.id));
+      dispatch(upvoteCard(columnId, card));
     };
     return (
       <PixelCard
@@ -34,7 +34,7 @@ export const RetroItem = ({
       >
         <div className='flex flex-col align-baseline'>
           <p>{card.text}</p>
-          <cite className='text-xs'> - {card.author}</cite>
+          <cite className='text-xs self-end'> - {card.author}</cite>
         </div>
         <div className='w-full flex justify-between'>
           <button onClick={upvote}>

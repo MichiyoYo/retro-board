@@ -29,7 +29,6 @@ export const AddButton = ({
     columnId: string;
   }) => {
     event.preventDefault();
-    console.log('Adding card to column', columnId);
     dispatch(
       addCard(columnId, {
         ...emptyCard,
@@ -48,7 +47,7 @@ export const AddButton = ({
         id={button.id}
         onClick={() => setIsPopupOpen(true)}
       >
-        Add Card
+        {button.text}
       </Button>
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <h2 className='text-lg mb-4'>Share your retro-thoughts</h2>

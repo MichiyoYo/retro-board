@@ -14,19 +14,28 @@ export const initialColumns: Column[] = [
     id: 'went-well',
     title: 'Went Well',
     icon: 'thumb-up',
-    items: [{ id: 'went-well', text: 'Add Card' }],
+    items: new Map().set('add-went-well', {
+      id: 'add-went-well',
+      text: 'Add Card',
+    }),
   },
   {
     id: 'needs-improvement',
     title: 'Needs Improvement',
     icon: 'control-panel',
-    items: [{ id: 'add-needs-improvement', text: 'Add Card' }],
+    items: new Map().set('add-needs-improvement', {
+      id: 'add-needs-improvement',
+      text: 'Add Card',
+    }),
   },
   {
     id: 'action-items',
     title: 'Action Items',
     icon: 'star',
-    items: [{ id: 'add-action-item', text: 'Add Card' }],
+    items: new Map().set('add-action-items', {
+      id: 'add-action-items',
+      text: 'Add Card',
+    }),
   },
 ];
 

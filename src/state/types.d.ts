@@ -5,7 +5,7 @@ export interface BoardState {
 export interface BoardAction {
   type: string;
   payload: {
-    id: string;
+    columnId: string;
     item: Card | Button;
   };
 }

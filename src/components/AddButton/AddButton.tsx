@@ -1,5 +1,4 @@
 import Form from 'components/Form/Form';
-import { emptyCard } from 'constants';
 import { Button, Popup } from 'pixel-retroui';
 import { useContext, useState } from 'react';
 import { addCard } from 'state/actions';
@@ -31,8 +30,8 @@ export const AddButton = ({
     event.preventDefault();
     dispatch(
       addCard(columnId, {
-        ...emptyCard,
-        text: 'hey',
+        id: crypto.randomUUID(),
+        text: 'ad',
         votes: 2,
         author: 'Cre',
       })

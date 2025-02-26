@@ -1,7 +1,7 @@
 import { Board, Card, Column } from './types';
 
 export const emptyCard: Card = {
-  id: crypto.randomUUID(),
+  id: '',
   text: '',
   votes: 0,
 };

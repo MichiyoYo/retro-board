@@ -4,20 +4,21 @@ import { Card as PixelCard } from 'pixel-retroui';
 import { useContext } from 'react';
 import { upvoteCard } from 'state/actions';
 import { BoardContext } from 'state/BoardContext';
-import { Button as ButtonType, Card } from 'types';
+import { Button, Card } from 'types';
 import { isCard } from 'utils/utils';
 
 export const RetroItem = ({
   item,
   columnId,
 }: {
-  item: Card | ButtonType;
+  item: Card | Button;
   columnId: string;
 }) => {
   const context = useContext(BoardContext);
   if (!context) {
     throw new Error('BoardContext is undefined');
   }
+  console.log(item.id);
   const { dispatch } = context;
   if (item && isCard(item)) {
     const card = item as Card;
@@ -45,7 +46,7 @@ export const RetroItem = ({
       </PixelCard>
     );
   } else {
-    const button = item as ButtonType;
+    const button = item as Button;
     return <AddButton button={button} columnId={columnId} />;
   }
 };

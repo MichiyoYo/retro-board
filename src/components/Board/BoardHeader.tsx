@@ -1,5 +1,4 @@
 import { Icon } from 'components/ui/Icon';
-import { linearGradient } from 'constants';
 import { Card as PixelCard } from 'pixel-retroui';
 import { useContext } from 'react';
 import { BoardContext } from 'state/BoardContext';
@@ -16,11 +15,11 @@ export const BoardHeader = () => {
       {board?.columns?.map((column: Column) => (
         <PixelCard
           key={column.id}
-          bg='white'
+          bg='black'
           textColor='white'
-          borderColor='black'
-          shadowColor='black'
-          className={`text-center flex justify-center gap-2 ${linearGradient}`}
+          borderColor='#000'
+          shadowColor='#cacaca'
+          className={`text-center flex justify-center gap-2`}
         >
           <h2 className='py-2'>{column.title}</h2>
           <Icon name={column.icon ?? ''} size={24} />

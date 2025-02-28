@@ -1,1 +1,5 @@
 @import 'pixel-retroui/dist/index.css';
+
+body {
+  background-color: #e7e7e7;
+}

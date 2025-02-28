@@ -22,7 +22,6 @@ export const BoardBody = () => {
     throw new Error('BoardContext is undefined');
   }
   const { board } = context;
-  console.log(board);
 
   return (
     <div className='grid grid-cols-3 gap-3'>

@@ -23,21 +23,3 @@ export interface Board extends Item {
   date: Date;
   columns: Column[];
 }
-
-/**
- * Column = {
- * colId: 123
- * title : to-do
- * icon: 'ok'
- * items: {
- *    '1234': {
- *      title: 'this sucks}
- *       ...
- *    },
- *    'buttonId': {
- *     ....
- *    }
- *   }
- *  }
- * }
- */

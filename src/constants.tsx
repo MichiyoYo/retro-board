@@ -16,7 +16,7 @@ export const initialColumns: Column[] = [
     icon: 'thumb-up',
     items: new Map().set('add-went-well', {
       id: 'add-went-well',
-      text: 'Add Card',
+      text: '+',
     }),
   },
   {
@@ -25,7 +25,7 @@ export const initialColumns: Column[] = [
     icon: 'control-panel',
     items: new Map().set('add-needs-improvement', {
       id: 'add-needs-improvement',
-      text: 'Add Card',
+      text: '+',
     }),
   },
   {
@@ -34,7 +34,7 @@ export const initialColumns: Column[] = [
     icon: 'star',
     items: new Map().set('add-action-items', {
       id: 'add-action-items',
-      text: 'Add Card',
+      text: '+',
     }),
   },
 ];

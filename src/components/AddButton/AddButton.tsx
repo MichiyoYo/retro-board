@@ -31,9 +31,9 @@ export const AddButton = ({
     dispatch(
       addCard(columnId, {
         id: crypto.randomUUID(),
-        text: 'ad',
-        votes: 2,
-        author: 'Cre',
+        text: 'This did go great and we should do it again',
+        votes: 1,
+        author: '',
       })
     );
     setIsPopupOpen(false);

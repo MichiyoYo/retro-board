@@ -38,9 +38,9 @@ export const RetroItem = ({
         className='p-5 w-full flex flex-col justify-between gap-4'
       >
         <div className='flex flex-col align-baseline'>
-          <p>{card.text}</p>
+          <p className='text-wrap max-h-fit'>{card.text}</p>
           <cite className='text-xs self-end'>
-            - {card.author ?? 'Anonymous'}
+            - {card.author ? card.author : 'Anonymous'}
           </cite>
         </div>
         <div className='w-full flex justify-between'>

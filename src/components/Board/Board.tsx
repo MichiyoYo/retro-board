@@ -10,8 +10,10 @@ export const Board = () => {
   const [state, dispatch] = useReducer(reducer, { board: initialBoard });
   return (
     <BoardContext.Provider value={{ board: state.board, dispatch }}>
-      <BoardHeader />
-      <BoardBody />
+      <div className='flex flex-col w-full max-w-full'>
+        <BoardHeader />
+        <BoardBody />
+      </div>
     </BoardContext.Provider>
   );
 };

@@ -12,7 +12,7 @@ export const List = ({
   itemComponent: ItemComponent,
 }: ListProps) => {
   return (
-    <ul>
+    <ul className='flex flex-col w-full max-w-full'>
       {Array.isArray(items)
         ? items.map((item, i) => (
             <ItemComponent key={i} {...{ [resourceName]: item }} />

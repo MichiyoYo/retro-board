@@ -24,7 +24,7 @@ export const BoardBody = () => {
   const { board } = context;
 
   return (
-    <div className='grid grid-cols-3 gap-3'>
+    <div className='grid grid-cols-3 gap-3 max-w-full'>
       {board?.columns?.map((column: Column) => (
         <List
           key={column.id}

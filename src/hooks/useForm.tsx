@@ -14,17 +14,17 @@ export const useForm = <T extends Record<string, unknown>>(
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
-    if (name === 'author' && value.length > 20) {
+    if (name === 'author' && value?.length > 20) {
       setErrors((prev) => ({
         ...prev,
-        name: 'Author name should be less than 20 characters',
+        author: 'Author name should be less than 20 characters',
       }));
       return;
     }
-    if (name === 'text' && value.length > 3) {
+    if (name === 'text' && value.length > 500) {
       setErrors((prev) => ({
         ...prev,
-        text: 'Text should be less than 140 characters',
+        text: 'Text should be less than 500 characters',
       }));
       return;
     }

@@ -11,23 +11,27 @@ const Form = ({
     onSubmit
   );
   return (
-    <form>
-      <div className='flex flex-col gap-4'>
-        <Input
-          placeholder='Your Name (optional)...'
-          name='author'
-          onChange={handleChange}
-        />
-        {errors.author && (
-          <p className='text-red-500 text-xs'>{errors.author}</p>
-        )}
-        <TextArea
-          name='text'
-          className='max-w-100 min-w-100 max-h-100  bg-white!'
-          placeholder='Your thoughts...'
-          onChange={handleChange}
-        />
-        {errors.text && <p className='text-red-500'>{errors.text}</p>}
+    <form className='flex flex-col w-full '>
+      <div className='flex flex-col w-full gap-4'>
+        <div className='w-full flex flex-col gap-1'>
+          <Input
+            placeholder='Your Name (optional)...'
+            name='author'
+            onChange={handleChange}
+          />
+          {errors.author && (
+            <p className='text-red-500 text-xs'>{errors.author}</p>
+          )}
+        </div>
+        <div className='w-full flex flex-col gap-3'>
+          <TextArea
+            name='text'
+            className='max-w-100 min-w-100 max-h-100  bg-white!'
+            placeholder='Your thoughts...'
+            onChange={handleChange}
+          />
+          {errors.text && <p className='text-red-500 text-xs'>{errors.text}</p>}
+        </div>
         <Button
           type='submit'
           className='self-end mr-0! uppercase! disabled:opacity-50'

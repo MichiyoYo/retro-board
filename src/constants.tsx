@@ -1,10 +1,4 @@
-import { Board, Card, Column } from './types';
-
-export const emptyCard: Card = {
-  id: '',
-  text: '',
-  votes: 0,
-};
+import { Board, Column } from './types';
 
 export const initialColumns: Column[] = [
   {
@@ -43,5 +37,29 @@ export const initialBoard: Board = {
   title: 'Retro Board',
 };
 
-export const linearGradient =
-  'bg-linear-to-r/decreasing from-indigo-500 to-teal-500';
+export const menuItems = [
+  {
+    id: 'new-retro',
+    label: 'New Retro',
+    icon: 'edit',
+    onClick: () => console.log('New Retro clicked'),
+  },
+  {
+    id: 'save-retro',
+    label: 'Save Retro',
+    icon: 'save',
+    onClick: () => console.log('Save Retro clicked'),
+  },
+  {
+    id: 'export-retro',
+    label: 'Export',
+    icon: 'export',
+    onClick: () => console.log('Export clicked'),
+  },
+  {
+    id: 'settings',
+    label: 'Settings',
+    icon: 'gear',
+    onClick: () => console.log('Settings clicked'),
+  },
+];

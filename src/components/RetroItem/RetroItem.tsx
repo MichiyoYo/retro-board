@@ -5,7 +5,8 @@ import { useContext } from 'react';
 import { deleteCard, upvoteCard } from 'state/actions';
 import { BoardContext } from 'state/BoardContext';
 import { Button, Card } from 'types';
-import { isCard } from 'utils/utils';
+import { isCard } from '@/utils';
+import { motion } from 'framer-motion';
 
 export const RetroItem = ({
   item,
@@ -45,15 +46,23 @@ export const RetroItem = ({
         </div>
         <div className='w-full flex justify-between'>
           <div>
-            <button onClick={onDelete} className='flex items-center'>
+            <motion.button
+              whileHover={{ scale: 1.3 }}
+              onClick={onDelete}
+              className='flex items-center'
+            >
               <Icon name='bin' size={24} />
-            </button>
+            </motion.button>
           </div>
           <div className='flex items-center gap-1'>
             <span className='text-sm'>{card.votes}</span>
-            <button onClick={onUpvote} className='flex items-center'>
+            <motion.button
+              whileHover={{ scale: 1.3 }}
+              onClick={onUpvote}
+              className='flex items-center'
+            >
               <Icon name='heart' size={24} />
-            </button>
+            </motion.button>
           </div>
         </div>
       </PixelCard>

@@ -31,7 +31,7 @@ export const Footer = () => (
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.3 }}
-          className={`flex justify-center transitionClass`}
+          className={`flex justify-center transitionClass mt-1`}
         >
           <a href='https://twitter.com/MichiyoYo' target='_blank'>
             <Icon name='notion' size={20} />

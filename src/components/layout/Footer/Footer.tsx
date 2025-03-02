@@ -1,4 +1,5 @@
 import { Icon } from '@/ui';
+import { motion } from 'motion/react';
 
 export const Footer = () => (
   <footer className='flex items-center flex-none justify-between'>
@@ -10,29 +11,32 @@ export const Footer = () => (
     </p>
     <div className=''>
       <ul className='flex gap-1 align-center'>
-        <li>
+        <motion.li whileHover={{ scale: 1.3 }}>
           <a href='https://github.com/MichiyoYo' target='_blank'>
             <Icon name='github' size={24} />
           </a>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.3 }}>
           <a
             href='https://www.linkedin.com/in/cristinalesterrocks/'
             target='_blank'
           >
             <Icon name='linkedin' size={24} />
           </a>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.3 }}>
           <a href='https://www.instagram.com/kitten_surimi/' target='_blank'>
             <Icon name='instagram-detailed' size={24} />
           </a>
-        </li>
-        <li className='flex justify-center items-center'>
-          <a href='https://www.notion.com/@purplestuffcrafts' target='_blank'>
-            <Icon name='notion' size={19} />
+        </motion.li>
+        <motion.li
+          whileHover={{ scale: 1.3 }}
+          className={`flex justify-center transitionClass`}
+        >
+          <a href='https://twitter.com/MichiyoYo' target='_blank'>
+            <Icon name='notion' size={20} />
           </a>
-        </li>
+        </motion.li>
       </ul>
     </div>
   </footer>

@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { addCard } from 'state/actions';
 import { BoardContext } from 'state/BoardContext';
 import { Button as ButtonType, Card } from 'types';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export const AddButton = ({
   button,
@@ -38,10 +39,20 @@ export const AddButton = ({
       >
         <span className='text-xl'>{button.text}</span>
       </Button>
-      <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-        <h2 className='text-lg mb-4'>Share your retro-thoughts</h2>
-        <Form onSubmit={addCardToColumn} />
-      </Popup>
+      <AnimatePresence initial={false}>
+        {isPopupOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
+              <h2 className='text-lg mb-4'>Share your retro-thoughts</h2>
+              <Form onSubmit={addCardToColumn} />
+            </Popup>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

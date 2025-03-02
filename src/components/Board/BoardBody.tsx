@@ -24,7 +24,8 @@ export const BoardBody = () => {
   const { board } = context;
 
   return (
-    <div className='grid grid-cols-3 gap-3 max-w-full'>
+    // TODO: fix alignment of the list and headers on mobile
+    <div className='grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3'>
       {board?.columns?.map((column: Column) => (
         <List
           key={column.id}

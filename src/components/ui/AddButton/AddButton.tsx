@@ -36,7 +36,7 @@ export const AddButton = ({
         id={button.id}
         onClick={() => setIsPopupOpen(true)}
       >
-        {button.text}
+        <span className='text-xl'>{button.text}</span>
       </Button>
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <h2 className='text-lg mb-4'>Share your retro-thoughts</h2>

@@ -1,5 +1,5 @@
 import { Icon } from '@/ui';
-import { AddButton } from 'components/AddButton';
+import { AddButton } from 'components/ui/AddButton';
 import { Card as PixelCard } from 'pixel-retroui';
 import { useContext } from 'react';
 import { deleteCard, upvoteCard } from 'state/actions';

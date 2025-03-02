@@ -11,7 +11,7 @@ export const BoardHeader = () => {
   }
   const { board } = context;
   return (
-    <div className='grid grid-cols-3 gap-3  mb-3'>
+    <div className='grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3'>
       {board?.columns?.map((column: Column) => (
         <PixelCard
           key={column.id}
@@ -19,7 +19,7 @@ export const BoardHeader = () => {
           textColor='white'
           borderColor='#000'
           shadowColor='#cacaca'
-          className={`text-center flex justify-center gap-2`}
+          className={`text-center flex justify-center items-center gap-1`}
         >
           <h2 className='py-2'>{column.title}</h2>
           <Icon name={column.icon ?? ''} size={24} />

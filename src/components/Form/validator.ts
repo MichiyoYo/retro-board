@@ -1,18 +1,13 @@
-export const validateCard = (
-  name: string,
-  value: string
-): Record<string, string> => {
-  if (name === 'author') {
-    if (value.trim() === '') {
-      return { author: 'Author is required' };
-    }
-    return { author: '' };
+export const validateCard = (name: string, value: string) => {
+  if (name === 'author' && value?.length > 20) {
+    return {
+      author: 'Author name should be less than 20 characters',
+    } as Record<string, string>;
   }
-  if (name === 'text') {
-    if (value.trim() === '') {
-      return { text: 'Text is required' };
-    }
-    return { text: '' };
+  if (name === 'text' && value.length > 500) {
+    return {
+      text: 'Text should be less than 500 characters',
+    } as Record<string, string>;
   }
   return {};
 };

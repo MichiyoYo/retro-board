@@ -1,5 +1,6 @@
 import { useForm } from 'hooks/useForm';
 import { Button, Input, TextArea } from 'pixel-retroui';
+import { validateCard } from './validator';
 
 const Form = ({
   onSubmit,
@@ -8,7 +9,8 @@ const Form = ({
 }) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     { author: '', text: '' },
-    onSubmit
+    onSubmit,
+    validateCard
   );
   return (
     <form className='flex flex-col w-full '>

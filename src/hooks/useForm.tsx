@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 export const useForm = <T extends Record<string, unknown>>(
   initialValues: T,
-  onSubmit: (values: T) => void
+  onSubmit: (values: T) => void,
+  validator?: (name: string, value: string) => Record<string, string>
 ) => {
   const [values, setValues] = useState<T>(initialValues);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -14,21 +15,9 @@ export const useForm = <T extends Record<string, unknown>>(
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
-    if (name === 'author' && value?.length > 20) {
-      setErrors((prev) => ({
-        ...prev,
-        author: 'Author name should be less than 20 characters',
-      }));
-      return;
+    if (validator) {
+      setErrors(validator(name, value));
     }
-    if (name === 'text' && value.length > 500) {
-      setErrors((prev) => ({
-        ...prev,
-        text: 'Text should be less than 500 characters',
-      }));
-      return;
-    }
-
     setValues((prev: T) => ({ ...prev, [name]: value }));
   };
 

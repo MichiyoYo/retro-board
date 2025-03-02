@@ -28,9 +28,9 @@ export const Footer = () => (
             <Icon name='instagram-detailed' size={24} />
           </a>
         </li>
-        <li className='mt-1'>
+        <li className='flex justify-center items-center'>
           <a href='https://www.notion.com/@purplestuffcrafts' target='_blank'>
-            <Icon name='notion' size={18} />
+            <Icon name='notion' size={19} />
           </a>
         </li>
       </ul>

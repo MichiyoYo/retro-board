@@ -6,7 +6,7 @@ const Form = ({
 }: {
   onSubmit: (values: { author: string; text: string }) => void;
 }) => {
-  const { handleChange, handleSubmit } = useForm(
+  const { values, errors, handleChange, handleSubmit } = useForm(
     { author: '', text: '' },
     onSubmit
   );
@@ -18,16 +18,21 @@ const Form = ({
           name='author'
           onChange={handleChange}
         />
+        {errors.author && (
+          <p className='text-red-500 text-xs'>{errors.author}</p>
+        )}
         <TextArea
           name='text'
           className='max-w-100 min-w-100 max-h-100  bg-white!'
           placeholder='Your thoughts...'
           onChange={handleChange}
         />
+        {errors.text && <p className='text-red-500'>{errors.text}</p>}
         <Button
           type='submit'
-          className='self-end mr-0! uppercase!'
+          className='self-end mr-0! uppercase! disabled:opacity-50'
           onClick={handleSubmit}
+          disabled={!values?.text}
         >
           Post
         </Button>

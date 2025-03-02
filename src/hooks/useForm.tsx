@@ -5,11 +5,30 @@ export const useForm = <T extends Record<string, unknown>>(
   onSubmit: (values: T) => void
 ) => {
   const [values, setValues] = useState<T>(initialValues);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+    if (name === 'author' && value.length > 20) {
+      setErrors((prev) => ({
+        ...prev,
+        name: 'Author name should be less than 20 characters',
+      }));
+      return;
+    }
+    if (name === 'text' && value.length > 3) {
+      setErrors((prev) => ({
+        ...prev,
+        text: 'Text should be less than 140 characters',
+      }));
+      return;
+    }
+
     setValues((prev: T) => ({ ...prev, [name]: value }));
   };
 
@@ -18,5 +37,5 @@ export const useForm = <T extends Record<string, unknown>>(
     onSubmit(values);
   };
 
-  return { values, handleChange, handleSubmit };
+  return { values, errors, handleChange, handleSubmit };
 };

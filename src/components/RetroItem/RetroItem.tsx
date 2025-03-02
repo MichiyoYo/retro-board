@@ -37,7 +37,7 @@ export const RetroItem = ({
         shadowColor='#b7ae8f'
         className='p-5 w-full flex flex-col justify-between gap-4'
       >
-        <div className='flex flex-col align-baseline'>
+        <div className='flex flex-col align-baseline gap-2'>
           <p className='text-wrap max-h-fit'>{card.text}</p>
           <cite className='text-xs self-end'>
             - {card.author ? card.author : 'Anonymous'}

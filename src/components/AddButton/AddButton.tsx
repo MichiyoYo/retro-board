@@ -3,7 +3,7 @@ import { Button, Popup } from 'pixel-retroui';
 import { useContext, useState } from 'react';
 import { addCard } from 'state/actions';
 import { BoardContext } from 'state/BoardContext';
-import { Button as ButtonType } from 'types';
+import { Button as ButtonType, Card } from 'types';
 
 export const AddButton = ({
   button,
@@ -17,25 +17,15 @@ export const AddButton = ({
     throw new Error('BoardContext is undefined');
   }
   const { dispatch } = context;
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const addCardToColumn = ({
-    event,
-    columnId,
-  }: {
-    event: React.MouseEvent<HTMLButtonElement>;
-    columnId: string;
-  }) => {
-    event.preventDefault();
-    dispatch(
-      addCard(columnId, {
-        id: crypto.randomUUID(),
-        text: 'This did go great and we should do it again',
-        votes: 1,
-        author: '',
-      })
-    );
+  const addCardToColumn = (values: { author: string; text: string }) => {
+    const newCard: Card = {
+      id: crypto.getRandomValues(new Uint32Array(1))[0].toString(),
+      ...values,
+      votes: 1,
+    };
+    dispatch(addCard(columnId, newCard));
     setIsPopupOpen(false);
   };
 
@@ -50,7 +40,7 @@ export const AddButton = ({
       </Button>
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <h2 className='text-lg mb-4'>Share your retro-thoughts</h2>
-        <Form onSubmit={(event) => addCardToColumn({ event, columnId })} />
+        <Form onSubmit={addCardToColumn} />
       </Popup>
     </>
   );

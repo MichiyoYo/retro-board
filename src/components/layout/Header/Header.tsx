@@ -24,7 +24,9 @@ export const Header = () => {
             menu
           </motion.button>
         </div>
-        <h1 className='text-2xl flex-1 text-center'>Retro Board</h1>
+        <h1 className='text-[4rem]! flex-1 text-center font-pixy'>
+          Retro Board
+        </h1>
         <motion.div whileHover={{ scale: 1.1 }} className='flex-none '>
           <Button
             className={`flex items-center gap-1`}

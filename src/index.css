@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+
+@font-face {
+  font-family: 'Pixy';
+  src: local('Pixy'), url('/src/assets/fonts/pixy.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@theme {
+  --font-pixy: 'Pixy', sans-serif;
+}

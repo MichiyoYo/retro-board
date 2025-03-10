@@ -6,15 +6,19 @@ export interface MenuItem extends Item {
   label: string;
   icon: string;
   onClick: () => void;
+  subItems?: MenuItem[];
 }
 
 export const MenuItem = ({ id, label, icon, onClick }: MenuItem) => {
   return (
     <motion.li whileHover={{ scale: 1.1 }} key={id} className='p-2'>
-      <a onClick={onClick} className='flex items-center cursor-pointer gap-2'>
+      <button
+        onClick={onClick}
+        className='flex items-center cursor-pointer gap-2'
+      >
         <Icon name={icon} size={24} />
         <span className='text-sm'>{label}</span>
-      </a>
+      </button>
     </motion.li>
   );
 };

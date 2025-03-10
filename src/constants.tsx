@@ -61,5 +61,19 @@ export const menuItems = [
     label: 'Settings',
     icon: 'gear',
     onClick: () => console.log('Settings clicked'),
+    subItems: [
+      {
+        id: 'settings-light-theme',
+        label: 'Light Theme',
+        icon: 'light-bulb-on',
+        onClick: () => console.log('Settings 1 clicked'),
+      },
+      {
+        id: 'settings-dark-theme',
+        label: 'Dark Theme',
+        icon: 'light-bulb-off',
+        onClick: () => console.log('Settings 2 clicked'),
+      },
+    ],
   },
 ];
